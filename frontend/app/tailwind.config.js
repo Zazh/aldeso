@@ -23,7 +23,7 @@ const config = {
 				'fluid-xl': 'clamp(1.25rem, 1rem + 1vw, 1.5rem)',
 				'fluid-2xl': 'clamp(1.5rem, 1rem + 2vw, 2rem)',
 				'fluid-4xl': 'clamp(2.25rem, 1.5rem + 3vw, 3rem)',
-				'fluid-6xl': 'clamp(3rem, 2rem + 4vw, 5.5rem)',
+				'fluid-6xl': 'clamp(3rem, 2rem + 4vw, 10rem)',
 			},
 			lineHeight: {
 				'fluid-tight': 'clamp(1.1, 1.05 + 0.3vw, 1.3)',
