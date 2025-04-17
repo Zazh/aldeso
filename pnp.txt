@@ -1,0 +1,59 @@
+погоги мне разваернуть докер через докер компос.
+
+я скопировал докер компос со старого проекта
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgresuser
+      POSTGRES_PASSWORD: kb971033
+      POSTGRES_DB: db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/app:/app
+      - ./backend/app/media:/app/media
+
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8181:8181"
+    depends_on:
+      - backend
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend/app/src:/app/src
+      - ./frontend/app/static:/app/static
+      - ./frontend/app/svelte.config.js:/app/svelte.config.js
+      - ./frontend/app/vite.config.ts:/app/vite.config.ts
+
+  proxy:
+    build: ./nginx
+    # Пробрасываем 80 наружу (Nginx будет слушать на 80)
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    # Если нужно, монтируем volume c медиа-файлами Django:
+    volumes:
+      - ./frontend/build:/usr/share/nginx/html:ro
+
+volumes:
+  postgres_data:
+
+у меня есть фронтенд. и есть бэкенд так же nginx обратный прокси в отдельных контейнерах.
+во фронте /aldeso/fontend/app лежит проект на свелте. Нужно от него чтобы он выполнял билд свелте проекта

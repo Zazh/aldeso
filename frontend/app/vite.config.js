@@ -9,8 +9,8 @@ export default defineConfig({
 	],
 	server: {
 		watch: {
-			usePolling: true, // <- добавь это, если используешь WSL, Docker, VirtualBox
-			interval: 100, // можно увеличить до 200–300 если нужно
+			usePolling: true,
+			interval: 100,
 		},
 		open: true,
 	}
