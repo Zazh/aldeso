@@ -1,5 +1,6 @@
 import { getProducts } from '$lib/api';
 
 export const load = async ({ fetch }) => {
-    return { products: await getProducts() };
+    const products = await getProducts(fetch);  // <- вот здесь!
+    return { products };
 };

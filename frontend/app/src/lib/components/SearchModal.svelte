@@ -4,42 +4,41 @@
     import { onMount } from 'svelte';
     import { searchProducts, type Product } from '$lib/api';
 
-    export let open = false;
+    export let open = true;
 
-    /* ── основные стейт‑переменные ─────────────────────────── */
+    /* ── основные стейты ───────────────────────────────────── */
     const term     = writable('');
     const results  = writable<Product[]>([]);
     const loading  = writable(false);
     const errorMsg = writable<string | null>(null);
 
-    /* ── ①история запросов (максиму) ───────────────────── */
-    const history  = writable<string[]>([]);
-
+    /* ── история (до 5 объектов: query + category) ─────────── */
+    interface HistoryItem { query: string; category: string }
+    const history = writable<HistoryItem[]>([]);
     const HISTORY_KEY = 'search-history';
 
-    /* загрузка истории из localStorage */
     onMount(() => {
-        if (typeof localStorage !== 'undefined') {
-            const raw = localStorage.getItem(HISTORY_KEY);
-            if (raw) history.set(JSON.parse(raw));
-        }
+        const raw = localStorage.getItem(HISTORY_KEY);
+        if (raw) history.set(JSON.parse(raw) as HistoryItem[]);
     });
 
-    /* helper: сохраняем массив в storage */
-    function saveHistory(list: string[]) {
+    function saveHistory(list: HistoryItem[]) {
         localStorage.setItem(HISTORY_KEY, JSON.stringify(list));
     }
 
-    /* helper: добавить запрос */
-    function addToHistory(query: string) {
+    function addToHistory(product: Product) {
+        const item: HistoryItem = {
+            query: product.name,
+            category: product.category_name
+        };
         let list = get(history);
-        list = [query, ...list.filter(q => q !== query)].slice(0, 5); // уник + 5
+        list = [item, ...list.filter(i => i.query !== item.query)].slice(0, 5);
         history.set(list);
-        if (typeof localStorage !== 'undefined') saveHistory(list);
+        saveHistory(list);
     }
 
-    /* ── ② поиск (дебаунс) ─────────────────────────────────── */
-    function debounce<T extends (...args: any[]) => void>(fn: T, wait = 300) {
+    /* ── debounce‑поиск ────────────────────────────────────── */
+    function debounce<T extends (...a: any[]) => void>(fn: T, wait = 300) {
         let t: ReturnType<typeof setTimeout> | null = null;
         return (...args: Parameters<T>) => {
             if (t) clearTimeout(t);
@@ -50,29 +49,17 @@
     const runSearch = debounce(async (value: string) => {
         value = value.trim();
         if (value.length < 3) {
-            results.set([]);
-            loading.set(false);
-            errorMsg.set(null);
-            return;
+            results.set([]); loading.set(false); errorMsg.set(null); return;
         }
         loading.set(true);
-        try {
-            const data = await searchProducts(value);
-            results.set(data);
-            errorMsg.set(null);
-        } catch (e) {
-            results.set([]);
-            errorMsg.set('Ошибка запроса');
-            console.error(e);
-        } finally {
-            loading.set(false);
-        }
+        try     { results.set(await searchProducts(value)); errorMsg.set(null); }
+        catch(e){ results.set([]); errorMsg.set('Ошибка запроса'); console.error(e); }
+        finally { loading.set(false); }
     }, 300);
 
-    /* реактивно дёргаем поиск */
-    $: runSearch($term);
+    $: runSearch($term);   // реактивный вызов
 
-    /* ── ③ заголовок + видимость шапки ─────────────────────── */
+    /* ── вычисления для шапки ──────────────────────────────── */
     const showHeader = derived(
         [term, history],
         ([$t, $h]) => {
@@ -85,13 +72,9 @@
         [term, history, loading, errorMsg, results],
         ([$t, $h, $l, $e, $r]) => {
             const len = $t.trim().length;
-
-            if (len === 0) {
-                return $h.length ? 'История' : '';
-            }
-
-            if ($l)           return 'Загружаем…';
-            if ($e)           return $e;
+            if (len === 0) return $h.length ? 'История' : '';
+            if ($l) return 'Загружаем…';
+            if ($e) return $e;
             if ($r.length === 0) return 'Ничего не найдено';
             return 'Результаты';
         }
@@ -144,7 +127,7 @@
                             class="relative flex items-center justify-between gap-3 px-4 py-4
                             border-b border-gray-300 hover:bg-gray-100"
                            on:click={() => {
-                            addToHistory($term.trim());
+                            addToHistory(p);
                             open = false;
                           }} >
                         <h3 class="text-md tracking-wide uppercase font-bold w-full truncate">
@@ -165,14 +148,14 @@
                 <!-- if empty history -->
                 {#if $term.trim().length === 0}
                     {#if $history.length}
-                        {#each $history as q}
+                        {#each $history as h}
                             <button class="[ flex justify-between ] w-full text-left px-4 py-4 border-b border-gray-300 hover:bg-gray-100 items-center gap-2"
-                                    on:click={() => term.set(q)} >
+                                    on:click={() => term.set(h.query)} >
 
-                                <span class="text-md text-black tracking-wide uppercase font-bold w-full truncate">{q}</span>
+                                <span class="text-md text-black tracking-wide uppercase font-bold w-full truncate">{h.query}</span>
 
                                 <span class="flex items-center gap-3 text-gray-600">
-                                    <span class="leading-none">{q}</span>
+                                    <span class="leading-none">{h.category}</span>
                                     <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 12L6 6.5L1 1" stroke="#585858" stroke-width="2"/>
@@ -202,3 +185,4 @@
 
     </div>
 </Modal>
+

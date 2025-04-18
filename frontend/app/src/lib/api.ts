@@ -30,10 +30,9 @@ async function request<T>(
 /** ----------------------------------------------------------------
  *  Функции‑сервисы, которые удобно импортировать в load() / actions
  *  ----------------------------------------------------------------*/
-export const getProducts    = () => request<Product[]>(EP.products);
-export const getCategories  = () => request<Category[]>(EP.categories);
-export const searchProducts = (q: string, fetchFn = fetch) =>
-    request<Product[]>(`${EP.products}?search=${encodeURIComponent(q)}`, fetchFn);
+export const getProducts   = (fetchFn: typeof fetch) => request<Product[]>(EP.products, fetchFn);
+export const getCategories = (fetchFn: typeof fetch) => request<Category[]>(EP.categories, fetchFn);
+export const searchProducts = (q: string, fetchFn: typeof fetch = fetch) => request<Product[]>(`${EP.products}?search=${encodeURIComponent(q)}`, fetchFn);
 
 // Пример будущего метода:
 // export const getProductById = (id: number | string) =>

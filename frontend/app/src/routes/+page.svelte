@@ -3,7 +3,7 @@
 
     import Card from '$lib/components/Card.svelte';
     import SearchModal from "$lib/components/SearchModal.svelte";
-    let openModal = true;
+    let openModal = false;
 
     export let data: PageData;
     const { products } = data;
