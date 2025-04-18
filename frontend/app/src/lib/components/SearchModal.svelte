@@ -1,27 +1,55 @@
 <script lang="ts">
     import { Modal } from 'flowbite-svelte';
-    import { writable, derived } from 'svelte/store';
+    import { writable, derived, get } from 'svelte/store';
+    import { onMount } from 'svelte';
     import { searchProducts, type Product } from '$lib/api';
 
     export let open = false;
 
+    /* ── основные стейт‑переменные ─────────────────────────── */
     const term     = writable('');
     const results  = writable<Product[]>([]);
     const loading  = writable(false);
     const errorMsg = writable<string | null>(null);
 
-    /* ---- Локальная реализация debounce ---- */
+    /* ── ①история запросов (максиму) ───────────────────── */
+    const history  = writable<string[]>([]);
+
+    const HISTORY_KEY = 'search-history';
+
+    /* загрузка истории из localStorage */
+    onMount(() => {
+        if (typeof localStorage !== 'undefined') {
+            const raw = localStorage.getItem(HISTORY_KEY);
+            if (raw) history.set(JSON.parse(raw));
+        }
+    });
+
+    /* helper: сохраняем массив в storage */
+    function saveHistory(list: string[]) {
+        localStorage.setItem(HISTORY_KEY, JSON.stringify(list));
+    }
+
+    /* helper: добавить запрос */
+    function addToHistory(query: string) {
+        let list = get(history);
+        list = [query, ...list.filter(q => q !== query)].slice(0, 5); // уник + 5
+        history.set(list);
+        if (typeof localStorage !== 'undefined') saveHistory(list);
+    }
+
+    /* ── ② поиск (дебаунс) ─────────────────────────────────── */
     function debounce<T extends (...args: any[]) => void>(fn: T, wait = 300) {
-        let timer: ReturnType<typeof setTimeout> | null = null;
+        let t: ReturnType<typeof setTimeout> | null = null;
         return (...args: Parameters<T>) => {
-            if (timer) clearTimeout(timer);
-            timer = setTimeout(() => fn(...args), wait);
+            if (t) clearTimeout(t);
+            t = setTimeout(() => fn(...args), wait);
         };
     }
 
     const runSearch = debounce(async (value: string) => {
         value = value.trim();
-        if (value.length < 3) {          // ← новая проверка
+        if (value.length < 3) {
             results.set([]);
             loading.set(false);
             errorMsg.set(null);
@@ -41,23 +69,35 @@
         }
     }, 300);
 
+    /* реактивно дёргаем поиск */
     $: runSearch($term);
 
-    /* — реагируем на изменения term */
-    const showHeader = derived(term, $t => $t.trim().length >= 3);
-
-    const headerText = derived(
-        [loading, errorMsg, term, results],
-        ([$loading, $errorMsg, $term, $results]) => {
-            if ($loading)                      return 'Загружаем…';
-            if ($errorMsg)                     return $errorMsg;
-            if ($term.trim().length >= 3 && $results.length === 0)
-                return 'Ничего не найдено';
-            return 'История';
+    /* ── ③ заголовок + видимость шапки ─────────────────────── */
+    const showHeader = derived(
+        [term, history],
+        ([$t, $h]) => {
+            const len = $t.trim().length;
+            return len >= 3 || (len === 0 && $h.length > 0);
         }
     );
 
+    const headerText = derived(
+        [term, history, loading, errorMsg, results],
+        ([$t, $h, $l, $e, $r]) => {
+            const len = $t.trim().length;
+
+            if (len === 0) {
+                return $h.length ? 'История' : '';
+            }
+
+            if ($l)           return 'Загружаем…';
+            if ($e)           return $e;
+            if ($r.length === 0) return 'Ничего не найдено';
+            return 'Результаты';
+        }
+    );
 </script>
+
 
 
 <Modal bind:open outsideclose dismissable={false}>
@@ -80,18 +120,18 @@
         <div class="[ min-h-[20rem] ]">
             {#if $showHeader}
             <div aria-label="body-header" class=" [ px-4 py-4 ] flex items-center border-b-[1px] border-gray-300">
-                <!-- history true -->
                 <div class="flex flex-wrap items-center gap-3">
+                    {#if $headerText === 'История'}
                     <svg width="18px" height="16px" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.5284 7.42827C3.49934 7.62826 3.49934 7.79968 3.49934 7.99967H1.75541C1.75541 7.79968 1.75541 7.62826 1.78448 7.42827H3.5284Z" fill="#585858"/>
                         <path d="M10.3297 3.99984H9.45775C9.22523 3.99984 9.02177 4.19983 9.02177 4.42839V8.1711C9.02177 8.28538 9.0799 8.39966 9.13803 8.48537L11.5795 10.8853C11.7539 11.0567 12.0155 11.0567 12.1899 10.8853L12.8003 10.2853C12.9747 10.1139 12.9747 9.85674 12.8003 9.68532L10.7657 7.65683V4.42839C10.7657 4.19983 10.5622 3.99984 10.3297 3.99984Z" fill="#585858"/>
                         <path d="M9.89373 0C5.59205 0 2.07513 3.28558 1.78448 7.42827C1.78448 7.51398 1.75541 7.62826 1.75541 7.71397H0.447468C0.0696176 7.71397 -0.133841 8.14253 0.0986828 8.39966L2.27859 10.9996C2.45298 11.1995 2.7727 11.1995 2.9471 10.9996L5.127 8.39966C5.35953 8.11396 5.15607 7.71397 4.77822 7.71397H3.49934C3.49934 7.62826 3.49934 7.51398 3.49934 7.42827C3.78999 4.2284 6.55121 1.71422 9.86467 1.71422C13.6432 1.71422 16.6369 4.94266 16.23 8.71393C15.9393 11.4281 13.3235 13.9994 10.5332 14.2566C8.46953 14.4566 6.52214 13.7137 5.15607 12.2566C4.98168 12.0567 4.74915 11.9424 4.51663 12.2281L3.81906 13.0566C3.67373 13.228 3.78999 13.3423 3.93532 13.4852C5.50485 15.1137 7.65569 16.0279 9.98093 15.9993C14.1664 15.9422 17.6833 12.6852 17.9739 8.57108C18.3518 3.91413 14.5733 0 9.89373 0Z" fill="#585858"/>
                     </svg>
+                    {/if}
                     <span class="{ $errorMsg ? 'text-red-600' : 'text-gray-600' } font-bold">
                       { $headerText }
                     </span>
                 </div>
-                <!-- history true -->
             </div>
             {/if}
 
@@ -103,12 +143,13 @@
                         <a href={`/products/${p.id}`}
                             class="relative flex items-center justify-between gap-3 px-4 py-4
                             border-b border-gray-300 hover:bg-gray-100"
-                            on:click={() => (open = false)}
-                        >
+                           on:click={() => {
+                            addToHistory($term.trim());
+                            open = false;
+                          }} >
                         <h3 class="text-md tracking-wide uppercase font-bold w-full truncate">
                             {p.name}
                         </h3>
-
                             <span class="flex items-center gap-3 text-gray-600">
                                 {p.category_name}
                                 <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
@@ -123,16 +164,35 @@
 
                 <!-- if empty history -->
                 {#if $term.trim().length === 0}
-                <div class="pt-[5rem] text-center flex items-center justify-center">
-                    <div class=" flex items-center justify-center gap-3">
-                        <svg width="24px" height="22px" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3.5284 7.42827C3.49934 7.62826 3.49934 7.79968 3.49934 7.99967H1.75541C1.75541 7.79968 1.75541 7.62826 1.78448 7.42827H3.5284Z" fill="#585858"/>
-                            <path d="M10.3297 3.99984H9.45775C9.22523 3.99984 9.02177 4.19983 9.02177 4.42839V8.1711C9.02177 8.28538 9.0799 8.39966 9.13803 8.48537L11.5795 10.8853C11.7539 11.0567 12.0155 11.0567 12.1899 10.8853L12.8003 10.2853C12.9747 10.1139 12.9747 9.85674 12.8003 9.68532L10.7657 7.65683V4.42839C10.7657 4.19983 10.5622 3.99984 10.3297 3.99984Z" fill="#585858"/>
-                            <path d="M9.89373 0C5.59205 0 2.07513 3.28558 1.78448 7.42827C1.78448 7.51398 1.75541 7.62826 1.75541 7.71397H0.447468C0.0696176 7.71397 -0.133841 8.14253 0.0986828 8.39966L2.27859 10.9996C2.45298 11.1995 2.7727 11.1995 2.9471 10.9996L5.127 8.39966C5.35953 8.11396 5.15607 7.71397 4.77822 7.71397H3.49934C3.49934 7.62826 3.49934 7.51398 3.49934 7.42827C3.78999 4.2284 6.55121 1.71422 9.86467 1.71422C13.6432 1.71422 16.6369 4.94266 16.23 8.71393C15.9393 11.4281 13.3235 13.9994 10.5332 14.2566C8.46953 14.4566 6.52214 13.7137 5.15607 12.2566C4.98168 12.0567 4.74915 11.9424 4.51663 12.2281L3.81906 13.0566C3.67373 13.228 3.78999 13.3423 3.93532 13.4852C5.50485 15.1137 7.65569 16.0279 9.98093 15.9993C14.1664 15.9422 17.6833 12.6852 17.9739 8.57108C18.3518 3.91413 14.5733 0 9.89373 0Z" fill="#585858"/>
-                        </svg>
-                        <span class="text-gray-600 font-medium text-2xl">Нет истории поиска</span>
+                    {#if $history.length}
+                        {#each $history as q}
+                            <button class="[ flex justify-between ] w-full text-left px-4 py-4 border-b border-gray-300 hover:bg-gray-100 items-center gap-2"
+                                    on:click={() => term.set(q)} >
+
+                                <span class="text-md text-black tracking-wide uppercase font-bold w-full truncate">{q}</span>
+
+                                <span class="flex items-center gap-3 text-gray-600">
+                                    <span class="leading-none">{q}</span>
+                                    <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 12L6 6.5L1 1" stroke="#585858" stroke-width="2"/>
+                                </svg>
+                                </span>
+                            </button>
+                        {/each}
+                    {:else}
+
+                    <div class="pt-[5rem] text-center flex items-center justify-center">
+                        <div class=" flex items-center justify-center gap-3">
+                            <svg width="24px" height="22px" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5284 7.42827C3.49934 7.62826 3.49934 7.79968 3.49934 7.99967H1.75541C1.75541 7.79968 1.75541 7.62826 1.78448 7.42827H3.5284Z" fill="#585858"/>
+                                <path d="M10.3297 3.99984H9.45775C9.22523 3.99984 9.02177 4.19983 9.02177 4.42839V8.1711C9.02177 8.28538 9.0799 8.39966 9.13803 8.48537L11.5795 10.8853C11.7539 11.0567 12.0155 11.0567 12.1899 10.8853L12.8003 10.2853C12.9747 10.1139 12.9747 9.85674 12.8003 9.68532L10.7657 7.65683V4.42839C10.7657 4.19983 10.5622 3.99984 10.3297 3.99984Z" fill="#585858"/>
+                                <path d="M9.89373 0C5.59205 0 2.07513 3.28558 1.78448 7.42827C1.78448 7.51398 1.75541 7.62826 1.75541 7.71397H0.447468C0.0696176 7.71397 -0.133841 8.14253 0.0986828 8.39966L2.27859 10.9996C2.45298 11.1995 2.7727 11.1995 2.9471 10.9996L5.127 8.39966C5.35953 8.11396 5.15607 7.71397 4.77822 7.71397H3.49934C3.49934 7.62826 3.49934 7.51398 3.49934 7.42827C3.78999 4.2284 6.55121 1.71422 9.86467 1.71422C13.6432 1.71422 16.6369 4.94266 16.23 8.71393C15.9393 11.4281 13.3235 13.9994 10.5332 14.2566C8.46953 14.4566 6.52214 13.7137 5.15607 12.2566C4.98168 12.0567 4.74915 11.9424 4.51663 12.2281L3.81906 13.0566C3.67373 13.228 3.78999 13.3423 3.93532 13.4852C5.50485 15.1137 7.65569 16.0279 9.98093 15.9993C14.1664 15.9422 17.6833 12.6852 17.9739 8.57108C18.3518 3.91413 14.5733 0 9.89373 0Z" fill="#585858"/>
+                            </svg>
+                            <span class="text-gray-600 font-medium text-2xl">Нет истории поиска</span>
+                        </div>
                     </div>
-                </div>
+                    {/if}
                 {/if}
                 <!-- empty history -->
 
