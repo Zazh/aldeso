@@ -54,7 +54,7 @@
 </nav>
 <section class="custom-grid grid w-screen overflow-hidden">
     <div class="[ border-x-[1px] border-gray-300 gap-4 ] [ p-6 ] row-span-1 xl:col-span-3 xl:col-start-2 lg:col-span-4 col-span-full">
-        <h1 class="text-fluid-4xl leading-none font-bold">Каталог</h1>
+        <h1 class="text-fluid-4xl pb-1 font-bold">Каталог</h1>
     </div>
 </section>
 

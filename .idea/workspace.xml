@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/components/Hero.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Hero.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-495700d161d3-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.220" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
       </set>
     </attachedChunks>
   </component>
@@ -89,7 +89,8 @@
       <workItem from="1744768303907" duration="32243000" />
       <workItem from="1744903490998" duration="6000" />
       <workItem from="1744903971291" duration="273000" />
-      <workItem from="1744925565947" duration="10253000" />
+      <workItem from="1744925565947" duration="10492000" />
+      <workItem from="1744945316747" duration="2588000" />
     </task>
     <servers />
   </component>
