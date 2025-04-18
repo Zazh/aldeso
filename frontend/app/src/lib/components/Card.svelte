@@ -30,7 +30,7 @@
      style={sizeStyle}
 >
             <div class="img-block [ w-full aspect-square ] [ flex items-center justify-center ] border-b-[1px] border-gray-300" >
-                <img src="https://placehold.in/300x200" alt="" title="">
+                <img src="src={product.photo ?? 'https://placehold.in/300x200'}" alt="{product.name}" title="{product.name}">
             </div>
             <div class="info p-fluid-sm">
                 <div class="pt-4 pb-4">
@@ -38,16 +38,16 @@
                 </div>
                 <ul class="flex flex-wrap gap-3">
                     <li class="flex flex-col w-full">
-                        <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Покрытие</span>
-                        <span class="text-gray-500 text-base">Анодированное</span>
+                        <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Артикул</span>
+                        <span class="text-gray-500 text-base">{product.sku}</span>
+                    </li>
+                    <li class="flex flex-col w-full">
+                        <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Категория</span>
+                        <span class="text-gray-500 text-base">{product.category_name}</span>
                     </li>
                     <li class="flex flex-col w-full">
                         <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Покрытие</span>
-                        <span class="text-gray-500 text-base">Анодированное</span>
-                    </li>
-                    <li class="flex flex-col w-full">
-                        <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Покрытие</span>
-                        <span class="text-gray-500 text-base">Анодированное</span>
+                        <span class="text-gray-500 text-base">{product.attributes[0]?.value}</span>
                     </li>
                 </ul>
             </div>
