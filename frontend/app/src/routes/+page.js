@@ -1,18 +1,9 @@
-/** Svelte Kit загружает данные перед рендером страницы. */
+import { PUBLIC_API_BASE } from '$env/static/public';
+
 export async function load({ fetch }) {
-    // прямой адрес, без переменных окружения
-    const url = 'http://localhost:8003/products/products/';
+    const res = await fetch(`${PUBLIC_API_BASE}/products/products/`);
 
-    const res = await fetch(url);
+    if (!res.ok) return { status: res.status, error: new Error('API error') };
 
-    if (!res.ok) {
-        // пробрасываем ошибку на страницу
-        return {
-            status: res.status,
-            error: new Error(`API вернул ${res.status}`)
-        };
-    }
-
-    const products = await res.json();
-    return { products };              // эти данные придут в <script> страницы
+    return { products: await res.json() };
 }

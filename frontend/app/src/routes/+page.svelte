@@ -2,9 +2,7 @@
     import type { PageData } from './$types';
     export let data: PageData;
     const { products } = data;
-
     import Card from '$lib/components/Card.svelte';
-
 </script>
 <nav id="navigation" class="[ border-b-[1px] border-gray-300 ] grid w-screen overflow-hidden">
     <div class="[ hidden ] col-span-1 xl:flex p-4">
@@ -62,6 +60,7 @@
 
 <section class="custom-grid border-t-[1px] border-gray-300 grid w-screen overflow-hidden">
 
+    <!-- Основоной блок -->
     <div class="[ mx-[1.5rem] md:mx-0 ] [ main-card ] [ border-l-[1px] border-gray-300 ] [ flex flex-wrap ] row-span-1 xl:col-span-3 xl:col-start-2 lg:col-span-4 col-span-6">
         {#each products as product, i}
             <Card
@@ -72,7 +71,7 @@
         {/each}
     </div>
 
-    <!-- Вот эта опциональная колонка -->
+    <!-- Доп блок -->
     <div class="hidden [ lg:flex flex-col ] [ border-gray-300 ] row-span-1 xl:col-span-2 col-span-2">
         {#each products as product, i}
             {#if (i + 1) % 3 === 0}

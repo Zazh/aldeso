@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/app/src/routes/+page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+page.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +89,7 @@
       <workItem from="1744768303907" duration="32243000" />
       <workItem from="1744903490998" duration="6000" />
       <workItem from="1744903971291" duration="273000" />
-      <workItem from="1744925565947" duration="8468000" />
+      <workItem from="1744925565947" duration="9446000" />
     </task>
     <servers />
   </component>
