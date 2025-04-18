@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/SearchModal.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +90,7 @@
       <workItem from="1744903490998" duration="6000" />
       <workItem from="1744903971291" duration="273000" />
       <workItem from="1744925565947" duration="10492000" />
-      <workItem from="1744945316747" duration="10837000" />
+      <workItem from="1744945316747" duration="14489000" />
     </task>
     <servers />
   </component>

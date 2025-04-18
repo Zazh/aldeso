@@ -32,6 +32,8 @@ async function request<T>(
  *  ----------------------------------------------------------------*/
 export const getProducts    = () => request<Product[]>(EP.products);
 export const getCategories  = () => request<Category[]>(EP.categories);
+export const searchProducts = (q: string, fetchFn = fetch) =>
+    request<Product[]>(`${EP.products}?search=${encodeURIComponent(q)}`, fetchFn);
 
 // Пример будущего метода:
 // export const getProductById = (id: number | string) =>
