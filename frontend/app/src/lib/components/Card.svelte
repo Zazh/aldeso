@@ -27,8 +27,7 @@
 
 <div bind:this={root} class={`[ card ] w-full ${side ? '' : 'md:w-1/2'}
           ${hideOnLg ? 'lg:hidden' : ''}`}
-     style={sizeStyle}
->
+     style={sizeStyle}>
             <div class="img-block [ w-full aspect-square ] [ flex items-center justify-center ] border-b-[1px] border-gray-300" >
                 <img src="src={product.photo ?? 'https://placehold.in/300x200'}" alt="{product.name}" title="{product.name}">
             </div>
