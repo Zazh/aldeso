@@ -1,8 +1,29 @@
 <script lang="ts">
-    import { Modal, Dropdown, DropdownItem } from 'flowbite-svelte';
-    export let open = true;
-    let dropdownOpen = false;
+    import { Modal } from 'flowbite-svelte';
+    import { createEventDispatcher } from 'svelte';
+    import type {Category} from "$lib/api";
 
+    const dispatch = createEventDispatcher();
+    export let open = false;
+    export let categories: Category[] = [];
+
+    let selectedCategory = '';
+    let selectedView = '';
+    let hasLight = false;
+
+    function applyFilters() {
+        const params = new URLSearchParams();
+        if (selectedCategory) params.set('category__name', selectedCategory);
+        if (selectedView)   params.set('attributes__value', selectedView);
+        if (hasLight)       params.set('attributes__has_light', 'true');
+        dispatch('apply', { params });
+        open = false;
+    }
+
+    function resetFilters() {
+        dispatch('apply', { params: undefined });
+        open = false;
+    }
 </script>
 
 <Modal bind:open outsideclose dismissable={false} >
@@ -27,59 +48,35 @@
             <div class="w-full pt-4">
                 <h4 class="md:text-xl text-md font-bold text-black py-2">Категория</h4>
                 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    {#each categories as cat}
                     <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                         <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-license" class="w-full py-3 ms-2 text-md font-medium text-gray-900">Плинтус</label>
+                            <input id={cat.name} type="radio" bind:group={selectedCategory} value={cat.name} name="category" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 focus:ring-2  ">
+                            <label for={cat.name} class="w-full py-3 ms-2 text-md font-medium text-gray-900">
+                                {cat.name} ({cat.count})
+                            </label>
                         </div>
                     </li>
-                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                        <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-id" class="w-full py-3 ms-2 text-md font-medium text-gray-900">Рейка</label>
-                        </div>
-                    </li>
-                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                        <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-military" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-md font-medium text-gray-900">Карниз</label>
-                        </div>
-                    </li>
+                    {/each}
                 </ul>
             </div>
             <div class="w-full pt-4">
                 <h4 class="md:text-xl text-md font-bold text-black py-2">Вид</h4>
                 <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                        <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-license" class="w-full py-3 ms-2 text-md font-medium text-gray-900">Теневой</label>
-                        </div>
-                    </li>
-                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                        <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-id" class="w-full py-3 ms-2 text-md font-medium text-gray-900">Скрытый</label>
-                        </div>
-                    </li>
-                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                        <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-military" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-md font-medium text-gray-900">Микро</label>
-                        </div>
-                    </li>
-                    <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                        <div class="flex items-center ps-3">
-                            <input id="horizontal-list-radio-military" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-md font-medium text-gray-900">L - Образный</label>
-                        </div>
-                    </li>
+                    {#each ['Теневой', 'Скрытый', 'Микро', 'L-Образный'] as view}
+                        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                            <div class="flex items-center ps-3">
+                                <input id={view} bind:group={selectedView} type="radio" value={view} name="view" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                <label for={view} class="w-full py-3 ms-2 text-md font-medium text-gray-900">{view}</label>
+                            </div>
+                        </li>
+                    {/each}
                 </ul>
             </div>
             <div class="w-full pt-8 pb-4">
                 <div class="flex items-center">
-                    <input checked id="checked-checkbox" type="checkbox" value="" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded-md focus:ring-blue-500 ">
-                    <label for="checked-checkbox" class="leading-none -mb-1 ms-2 md:text-md text-sm font-bold text-gray-900 ">С подсветкой</label>
+                    <input bind:checked={hasLight} id="hasLight" type="checkbox" value="" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded-md focus:ring-blue-500 ">
+                    <label for="hasLight" class="leading-none -mb-1 ms-2 md:text-md text-sm font-bold text-gray-900 ">С подсветкой</label>
                 </div>
             </div>
 <!--            <div>-->
@@ -100,8 +97,8 @@
     <div class="-m-4 md:h-auto">
         <div class="border-t-[1px] border-gray-300 [ flex gap-2 justify-between items-center ] [ px-4 pt-4 ]">
             <div class="flex justify-end w-full items-center gap-3">
-                <button type="button" class="md:w-auto w-full text-red-400 border border-red-300 bg-white hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 font-bold rounded-lg md:text-md text-sm px-5 py-3 focus:outline-none ">Сбросить</button>
-                <button type="button" class="md:w-auto w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg md:text-md text-sm px-5 py-3 focus:outline-none ">Применить</button>
+                <button on:click={resetFilters} type="button" class="md:w-auto w-full text-red-400 border border-red-300 bg-white hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 font-bold rounded-lg md:text-md text-sm px-5 py-3 focus:outline-none ">Сбросить</button>
+                <button on:click={applyFilters} type="button" class="md:w-auto w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg md:text-md text-sm px-5 py-3 focus:outline-none ">Применить</button>
             </div>
         </div>
     </div>

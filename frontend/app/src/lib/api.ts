@@ -30,7 +30,8 @@ async function request<T>(
 /** ----------------------------------------------------------------
  *  Функции‑сервисы, которые удобно импортировать в load() / actions
  *  ----------------------------------------------------------------*/
-export const getProducts   = (fetchFn: typeof fetch) => request<Product[]>(EP.products, fetchFn);
+export const getProducts = (fetchFn: typeof fetch, params?: URLSearchParams) =>
+    request<Product[]>(`${EP.products}?${params ?? ''}`, fetchFn);
 export const getCategories = (fetchFn: typeof fetch) => request<Category[]>(EP.categories, fetchFn);
 export const searchProducts = (q: string, fetchFn: typeof fetch = fetch) => request<Product[]>(`${EP.products}?search=${encodeURIComponent(q)}`, fetchFn);
 
@@ -58,4 +59,7 @@ export interface Product {
 export interface Category {
     id: number;
     name: string;
+    photo?: string | null;
+    description?: string | null;
+    count: number;
 }

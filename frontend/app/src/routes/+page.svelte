@@ -1,16 +1,42 @@
 <script lang="ts">
-    import type { PageData } from './$types';
+    import { onMount } from 'svelte';
+    import { page } from '$app/stores';
+    import type { Product, Category } from '$lib/api';
 
+    import { getProducts, getCategories } from '$lib/api';
+
+    import FilterModal from '$lib/components/FilterModal.svelte';
     import Card from '$lib/components/Card.svelte';
     import SearchModal from "$lib/components/SearchModal.svelte";
-    import FilterModal from "$lib/components/FilterModal.svelte";
+
+    let products: Product[] = [];
+    let categories: Category[] = [];
 
     let openModal = false;
-    let openFilter = true;
+    let openFilter = false;
 
+    onMount(async () => {
+        // 1) Загружаем категории
+        categories = await getCategories(fetch);
 
-    export let data: PageData;
-    const { products } = data;
+        // 2) Считаем начальные параметры из URL (если страница открыли сразу с фильтрами)
+        const initParams = new URLSearchParams($page.url.search);
+        products = await getProducts(fetch, initParams);
+    });
+
+    // 3) Обработка события из модалки
+    async function handleApply(event: CustomEvent<{ params?: URLSearchParams }>) {
+        const params = event.detail.params;
+
+        // 1) Сразу подгружаем товары
+        products = await getProducts(fetch, params);
+
+        // 2) По желанию сохраняем фильтры в URL (для ссылки/refresh)
+        const query = params ? `?${params.toString()}` : '';
+        history.replaceState({}, '', query);
+
+        openFilter = false;
+    }
 </script>
 <nav id="navigation" class="[ border-b-[1px] border-gray-300 ] grid w-screen overflow-hidden">
     <div class="[ hidden ] col-span-1 xl:flex p-4">
@@ -63,10 +89,9 @@
 
 <section class="custom-grid grid w-screen overflow-hidden">
     <div class="[ border-x-[1px] border-gray-300 gap-4 ] [ p-6 ] row-span-1 xl:col-span-3 xl:col-start-2 lg:col-span-4 col-span-full">
-        <h1 class="text-fluid-4xl pb-1 font-bold">Каталог
-
+        <h1 class="text-fluid-4xl pb-1 font-bold">
+            Каталог
         </h1>
-
     </div>
 </section>
 
@@ -92,8 +117,11 @@
 </section>
 
 <SearchModal bind:open={openModal} />
-<FilterModal bind:open={openFilter} />
-
+<FilterModal
+        bind:open={openFilter}
+        {categories}
+        on:apply={handleApply}
+/>
 <style>
     .custom-grid {
         grid-template-columns: repeat(6, 1fr);
