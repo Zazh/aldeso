@@ -9,7 +9,8 @@ class ProductCategory(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
 
     photo = models.ImageField(
-        upload_to='product_photos/',
+        upload_to='products/',
+        default='products/no_image.png',
         blank=True,
         null=True,
         verbose_name=_("Photo")
@@ -58,7 +59,8 @@ class ProductInfo(models.Model):
     )
     description = models.TextField(blank=True, null=True, verbose_name=_("Description"))
     photo = models.ImageField(
-        upload_to='product_photos/',
+        upload_to='products/',
+        default='products/no_image.png',
         blank=True,
         null=True,
         verbose_name=_("Photo")

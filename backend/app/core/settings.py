@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'django_filters',
 ]
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+MEDIA_BASE_URL = os.getenv("DJANGO_MEDIA_BASE_URL")
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',

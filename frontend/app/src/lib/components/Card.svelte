@@ -34,7 +34,7 @@
           ${hideOnLg ? 'lg:hidden' : ''}`}
      style={sizeStyle}>
             <div class="img-block [ w-full aspect-square ] [ flex items-center justify-center ] border-b-[1px] border-gray-300" >
-                <img src="src={product.photo ?? 'https://placehold.in/300x200'}" alt="{product.name}" title="{product.name}">
+                <img src="{product.info.photo}" alt="{product.name}" title="{product.name}">
             </div>
             <div class="info p-fluid-sm">
                 <div class="pt-4 pb-4">
@@ -55,11 +55,6 @@
                     </li>
                 </ul>
             </div>
-<!--            <div class="cta pt-2 pb-[3rem] px-4">-->
-<!--                <a href=" " class=" w-full [ gap-1.5 inline-flex items-center justify-center ] cursor-pointer  focus-within:ring-4 focus-within:outline-hidden px-3.5 py-2.5 text-fluid-sm hover:bg-black text-black hover:text-white [ border-[1px] border-gray-300 ] focus-within:ring-gray-200 rounded-sm">-->
-<!--                    <span class="font-bold tracking-wide uppercase">Подробнее</span>-->
-<!--                </a>-->
-<!--            </div>-->
 </div>
 
 <style>

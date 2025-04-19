@@ -5,7 +5,7 @@ from django.conf import settings
 
 class ProductInfoSerializer(serializers.ModelSerializer):
     advantages = serializers.SerializerMethodField()
-    photo = serializers.SerializerMethodField()
+    photo = serializers.ImageField(use_url=True)
 
     class Meta:
         model = ProductInfo
