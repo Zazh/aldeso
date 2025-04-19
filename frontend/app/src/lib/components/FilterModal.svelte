@@ -73,12 +73,12 @@
                     {/each}
                 </ul>
             </div>
-            <div class="w-full pt-8 pb-4">
-                <div class="flex items-center">
-                    <input bind:checked={hasLight} id="hasLight" type="checkbox" value="" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded-md focus:ring-blue-500 ">
-                    <label for="hasLight" class="leading-none -mb-1 ms-2 md:text-md text-sm font-bold text-gray-900 ">С подсветкой</label>
-                </div>
-            </div>
+<!--            <div class="w-full pt-8 pb-4">-->
+<!--                <div class="flex items-center">-->
+<!--                    <input bind:checked={hasLight} id="hasLight" type="checkbox" value="" class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded-md focus:ring-blue-500 ">-->
+<!--                    <label for="hasLight" class="leading-none -mb-1 ms-2 md:text-md text-sm font-bold text-gray-900 ">С подсветкой</label>-->
+<!--                </div>-->
+<!--            </div>-->
 <!--            <div>-->
 <!--                <h4 class="text-lg font-bold text-black">Вид</h4>-->
 <!--                <button type="button" on:click={() => dropdownOpen = !dropdownOpen} class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-md font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">-->

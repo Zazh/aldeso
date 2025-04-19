@@ -5,8 +5,8 @@ import { PUBLIC_API_BASE } from '$env/static/public';
  *  ----------------------------------------------------------------*/
 const EP = {
     products: '/products/products/',
-    categories: '/products/categories/'
-    // productById: (id: number | string) => `/products/products/${id}/`,
+    categories: '/products/categories/',
+    attributes: '/products/attributes/'
 } as const;
 
 /** ----------------------------------------------------------------
@@ -30,11 +30,10 @@ async function request<T>(
 /** ----------------------------------------------------------------
  *  Функции‑сервисы, которые удобно импортировать в load() / actions
  *  ----------------------------------------------------------------*/
-export const getProducts = (fetchFn: typeof fetch, params?: URLSearchParams) =>
-    request<Product[]>(`${EP.products}?${params ?? ''}`, fetchFn);
+export const getProducts = (fetchFn: typeof fetch, params?: URLSearchParams) => request<Product[]>(`${EP.products}?${params ?? ''}`, fetchFn);
 export const getCategories = (fetchFn: typeof fetch) => request<Category[]>(EP.categories, fetchFn);
 export const searchProducts = (q: string, fetchFn: typeof fetch = fetch) => request<Product[]>(`${EP.products}?search=${encodeURIComponent(q)}`, fetchFn);
-
+export const getAttributes = (fetchFn: typeof fetch) => request<AttributeType[]>(EP.attributes, fetchFn);
 // Пример будущего метода:
 // export const getProductById = (id: number | string) =>
 //   request<Product>(EP.productById(id));
@@ -62,4 +61,9 @@ export interface Category {
     photo?: string | null;
     description?: string | null;
     count: number;
+}
+
+export interface AttributeType {
+    type: string;
+    values: { value: string; count: number }[];
 }

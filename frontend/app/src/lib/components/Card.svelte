@@ -11,6 +11,11 @@
 
     import { onMount } from 'svelte';
 
+    // Найдём атрибут “Вид” в списке attributes
+    const viewAttr = product.attributes.find(
+        (a) => a.attribute_name === 'Тип'
+    );
+
     /** Только у первой карточки запускаем ResizeObserver */
     onMount(() => {
         if (!first) return;
@@ -45,16 +50,16 @@
                         <span class="text-gray-500 text-base">{product.category_name}</span>
                     </li>
                     <li class="flex flex-col w-full">
-                        <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Покрытие</span>
-                        <span class="text-gray-500 text-base">{product.attributes[0]?.value}</span>
+                        <span class="uppercase tracking-wider text-fluid-sm font-bold leading-fluid-1">Вид</span>
+                        <span class="text-gray-500 text-base">{viewAttr?.value ?? '—'}</span>
                     </li>
                 </ul>
             </div>
-            <div class="cta pt-2 pb-[3rem] px-4">
-                <a href=" " class=" w-full [ gap-1.5 inline-flex items-center justify-center ] cursor-pointer  focus-within:ring-4 focus-within:outline-hidden px-3.5 py-2.5 text-fluid-sm hover:bg-black text-black hover:text-white [ border-[1px] border-gray-300 ] focus-within:ring-gray-200 rounded-sm">
-                    <span class="font-bold tracking-wide uppercase">Подробнее</span>
-                </a>
-            </div>
+<!--            <div class="cta pt-2 pb-[3rem] px-4">-->
+<!--                <a href=" " class=" w-full [ gap-1.5 inline-flex items-center justify-center ] cursor-pointer  focus-within:ring-4 focus-within:outline-hidden px-3.5 py-2.5 text-fluid-sm hover:bg-black text-black hover:text-white [ border-[1px] border-gray-300 ] focus-within:ring-gray-200 rounded-sm">-->
+<!--                    <span class="font-bold tracking-wide uppercase">Подробнее</span>-->
+<!--                </a>-->
+<!--            </div>-->
 </div>
 
 <style>
