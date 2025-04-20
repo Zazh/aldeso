@@ -13,3 +13,4 @@ yarn-error.log*
 /restart.sh
 
 /docker-compose.yml
+/frontend/nginx.conf

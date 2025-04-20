@@ -7,6 +7,14 @@
     <list default="true" id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/_app/env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/DbjcmB6i.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/app.Cwq-wRsH.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/start.yiQI9rIq.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/1.Ct8RQsts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/2.DuRtXJKH.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/version.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/_app/version.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
