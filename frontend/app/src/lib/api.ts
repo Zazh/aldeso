@@ -4,9 +4,9 @@ import { PUBLIC_API_BASE } from '$env/static/public';
  *  Карта эндпоинтов: добавлять одной строки
  *  ----------------------------------------------------------------*/
 const EP = {
-    products: 'api/products/',
-    categories: 'api/categories/',
-    attributes: 'api/products/attributes/'
+    products: 'products/',
+    categories: 'categories/',
+    attributes: 'products/attributes/'
 } as const;
 
 /** ----------------------------------------------------------------
