@@ -17,3 +17,8 @@ yarn-error.log*
 /frontend/Dockerfile
 /backend/Dockerfile
 /backend/app/core/settings.py
+
+# .gitignore
+__pycache__/
+*.pyc
+/backend/app/static/
