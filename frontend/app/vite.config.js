@@ -6,10 +6,12 @@ export default defineConfig({
 		sveltekit()
 	],
 	server: {
-		watch: {
-			usePolling: true,
-			interval: 100,
-		},
-		open: true,
+		proxy: {
+			'/api': {
+				target: 'http://localhost:8003',
+				changeOrigin: true,
+				secure: false,
+			}
+		}
 	}
 });
