@@ -10,6 +10,6 @@ yarn-error.log*
 
 .vscode/*
 
-restart.sh
+/restart.sh
 
-docker-compose.yml
+/docker-compose.yml

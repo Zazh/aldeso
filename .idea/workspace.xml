@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/_app/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/lJz96eNZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/app.DnUuj8eZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/start.D5cUWXmq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/1.BFfpttCW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/2.Bz82lS5r.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/version.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/_app/version.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/restart.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
