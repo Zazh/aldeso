@@ -14,3 +14,6 @@ yarn-error.log*
 
 /docker-compose.yml
 /frontend/nginx.conf
+/frontend/Dockerfile
+/backend/Dockerfile
+/backend/app/core/settings.py
