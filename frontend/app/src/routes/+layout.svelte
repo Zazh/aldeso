@@ -10,8 +10,8 @@
 
 {#if data.isHome}
     <Hero />
-{:else}
-    <Header />
+<!--{:else}-->
+<!--    <Header />-->
 {/if}
 
 {@render children()}

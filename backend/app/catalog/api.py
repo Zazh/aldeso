@@ -30,6 +30,15 @@ class ProductViewSet(ReadOnlyModelViewSet):
         ]
     search_fields = ['name', 'sku', 'info__description']
 
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            return super().retrieve(request, *args, **kwargs)
+        except Exception as e:
+            return Response(
+                {'error': str(e)},
+                status=500
+            )
+
     @action(detail=False, methods=['get'])
     def count(self, request):
         count = self.get_queryset().count()

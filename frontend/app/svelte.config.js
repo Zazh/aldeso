@@ -3,14 +3,14 @@ import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: preprocess(),   // закомментируйте, если не используете
-  kit: {
-    adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: 'index.html'
-    }),
-  }
+	preprocess: preprocess(),   // закомментируйте, если не используете
+	kit: {
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html'
+		}),
+	}
 };
 
 export default config;

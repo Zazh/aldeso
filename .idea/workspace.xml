@@ -4,96 +4,130 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/app/core/test.txt" afterDir="false" />
+    <list default="true" id="081b5a83-3433-4efb-8cc0-c454c513e410" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/routes/product/+page.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/app/src/store/sidebarStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aldeso.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aldeso.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/catalog/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/catalog/migrations/0002_attribute_data_type_attributechoice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/catalog/migrations/0003_remove_attribute_data_type_delete_attributechoice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/catalog/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/0.DGcPpSLp.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/2.Do4CArwm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/_layout.BQh2Q9Hj.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/_page.Do4CArwm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/69_IOA4Y.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/B9CXXYAi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/CWj6FrbW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/D4DGV4WP.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/D8UfXHjL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/DIeogL5L.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/DhsDZGdb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/rSr87C-J.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/rvsJeh5m.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/wXlp4y3c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/xI5vUqpW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/app.B703h7sc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/start.CxO-p4QA.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/0.DpBuY1TU.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/1.D2OslZ0n.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/2.DbAcJwN-.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/3.CWG1ehzT.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/version.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/_app/version.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/app.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/components/Header.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Header.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/products/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Sidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/svelte.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/restart.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Footer" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/backend/app/catalog/admin.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/app/catalog/api.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/app/catalog/filters.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/app/catalog/models.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/app/catalog/serializers.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/backend/app/core/urls.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2vius6PRhw33jA5MefXsT8sBh3y" />
+  <component name="ProjectId" id="2w4Tm0MgQzKCd52s8svKRf8Uwwk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.14.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.14.1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/azai/Projects/aldeso&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/azai/Projects/aldeso/frontend/app/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/azai/Projects/aldeso/frontend/app/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.index.html.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/aidarbek/Projects/aldeso/frontend/app/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/app/media" />
-      <recent name="$PROJECT_DIR$/frontend/app" />
-      <recent name="$PROJECT_DIR$/frontend/app/static" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/web/src" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.25659.40" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b891cdae-9b6e-475f-9d10-aa1a13b876ec" name="Changes" comment="" />
-      <created>1744640418135</created>
+      <changelist id="081b5a83-3433-4efb-8cc0-c454c513e410" name="Changes" comment="" />
+      <created>1745300001800</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1744640418135</updated>
-      <workItem from="1744640419147" duration="366000" />
-      <workItem from="1744640848332" duration="4613000" />
-      <workItem from="1744660930756" duration="289000" />
-      <workItem from="1744661257619" duration="43000" />
-      <workItem from="1744661326866" duration="672000" />
-      <workItem from="1744662283248" duration="2974000" />
-      <workItem from="1744667801086" duration="99000" />
-      <workItem from="1744710538091" duration="9327000" />
-      <workItem from="1744724165617" duration="15101000" />
-      <workItem from="1744768303907" duration="32243000" />
-      <workItem from="1744903490998" duration="6000" />
-      <workItem from="1744903971291" duration="273000" />
-      <workItem from="1744925565947" duration="10492000" />
-      <workItem from="1744945316747" duration="26707000" />
-      <workItem from="1745032299318" duration="5923000" />
-      <workItem from="1745040454636" duration="10880000" />
-      <workItem from="1745109398792" duration="6894000" />
-      <workItem from="1745172301281" duration="10225000" />
+      <updated>1745300001800</updated>
+      <workItem from="1746125770192" duration="3555000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
-    <option featureType="com.intellij.fileTypeFactory" implementationName="nginx.conf" />
   </component>
 </project>
