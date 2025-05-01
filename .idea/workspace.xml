@@ -5,59 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="081b5a83-3433-4efb-8cc0-c454c513e410" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/app/src/routes/product/+page.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/app/src/store/sidebarStore.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/postcss.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aldeso.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aldeso.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/catalog/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/catalog/migrations/0002_attribute_data_type_attributechoice.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/catalog/migrations/0003_remove_attribute_data_type_delete_attributechoice.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/catalog/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/catalog/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/0.DGcPpSLp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/2.Do4CArwm.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/_layout.BQh2Q9Hj.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/assets/_page.Do4CArwm.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/69_IOA4Y.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/B9CXXYAi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/CWj6FrbW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/D4DGV4WP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/D8UfXHjL.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/DIeogL5L.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/DhsDZGdb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/rSr87C-J.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/rvsJeh5m.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/wXlp4y3c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/chunks/xI5vUqpW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/app.B703h7sc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/entry/start.CxO-p4QA.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/0.DpBuY1TU.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/1.D2OslZ0n.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/2.DbAcJwN-.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/immutable/nodes/3.CWG1ehzT.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/_app/version.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/_app/version.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/app.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/app.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Card.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/lib/components/Header.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Header.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/routes/+layout.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/routes/products/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/lib/components/Sidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/svelte.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/svelte.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restart.sh" beforeDir="false" afterPath="$PROJECT_DIR$/restart.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1745300001800</updated>
-      <workItem from="1746125770192" duration="3555000" />
+      <workItem from="1746125770192" duration="3985000" />
     </task>
     <servers />
   </component>

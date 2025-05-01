@@ -18,6 +18,8 @@ yarn-error.log*
 /backend/Dockerfile
 /backend/app/core/settings.py
 
+/web/node_modules
+
 # .gitignore
 __pycache__/
 *.pyc
