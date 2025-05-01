@@ -190,7 +190,7 @@
   }
 }
 body {
-  background-color: red;
+  background-color: #fcfcfc;
 }
 @property --tw-font-weight {
   syntax: "*";
