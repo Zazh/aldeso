@@ -7,7 +7,7 @@
     "dev:sass":  "sass --watch src/style.scss:src/style.css",
     "dev:css":   "postcss src/main.css -o dist/styles.css --watch",
     "dev":       "concurrently \"npm run serve\" \"npm run dev:sass\" \"npm run dev:css\"",
-    "serve":     "live-server --open=index.html --watch=dist/styles.css,index.html",
+    "serve":     "live-server --open=index.html --watch=dist/styles.css,index.html,catalog.html,product.html",
 
     "build:sass":  "sass src/style.scss src/style.css",
     "build:css":   "NODE_ENV=production postcss src/main.css -o dist/styles.css",
